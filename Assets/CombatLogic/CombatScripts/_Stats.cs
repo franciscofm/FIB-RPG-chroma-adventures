@@ -8,6 +8,8 @@ public class _Stats : MonoBehaviour {
 	public _CombatLogic.Team team;	
 	[Tooltip("Tipo personaje")]
 	public _CombatLogic.Type type;
+	[Tooltip("Icono")]
+	public Sprite icon;
 	[Tooltip("Poder de las habilidades")]
 	public int attack;
 	[Tooltip("Vida")]

@@ -219,4 +219,20 @@ public class _CombatLogic {
 			placeTurn (t, s, Mathf.CeilToInt(s.turns * (1f + s.speed * 0.1f)));
 		}
 	}
+
+	public static List<GameObject> getAllies() {
+		return allies;
+	}
+
+	public static List<GameObject> getEnemies() {
+		return enemies;
+	}
+
+	public static GameObject[] getTurns() {
+		return turns;
+	}
+
+	public static GameObject getCurrentTurn() {
+		return turns [0];
+	}
 }
