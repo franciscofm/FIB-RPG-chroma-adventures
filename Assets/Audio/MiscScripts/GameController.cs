@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour {
 	CombatHudController chc;
 
     float timeCounter = 0f;
+	bool hasCard = false;
 
     public enum GameControllerState
     {
@@ -127,4 +128,16 @@ public class GameController : MonoBehaviour {
         navScene = scene.GetComponent<SceneScript>();
         navScene.gc = this;
     }
+
+	public void SetCard()
+	{
+		hasCard = true;
+	}
+
+	public void SetBoss()
+	{
+		if (!hasCard)
+			return;
+		Debug.Log ("WIN");
+	}
 }

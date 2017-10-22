@@ -215,5 +215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NavMusic: {fileID: 8300000, guid: 75f4406d9d278eb469ef57cfa3b84928, type: 3}
   CombatMusic: {fileID: 8300000, guid: c8bdbe1a39f4fdd41b946a513a734d77, type: 3}
+  combatEnter: {fileID: 8300000, guid: e6125cff1d1af5b49bf556345959c95d, type: 3}
+  victory: {fileID: 8300000, guid: 07533560a116d5442b57eace08772be8, type: 3}
+  punch: {fileID: 8300000, guid: eccc36a1b3d73ed4dbf408670f7da8f2, type: 3}
+  whoosh: {fileID: 8300000, guid: 624d87b2caf0cf7479f85613a4a720a4, type: 3}
   MusicSource: {fileID: 82943445221124696}
   SoundSource: {fileID: 82023711019769066}
