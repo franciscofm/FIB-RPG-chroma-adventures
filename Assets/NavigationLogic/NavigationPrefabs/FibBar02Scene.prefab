@@ -176,6 +176,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4705986273781776}
+  - component: {fileID: 114524134297606718}
   m_Layer: 0
   m_Name: FibBar02Scene
   m_TagString: Untagged
@@ -371,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480470040933094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997762327134982}
@@ -702,6 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1355878435411016, guid: fc69f96be3d055e4a9a3174e62b56bf7, type: 2}
+  myScene: {fileID: 114524134297606718}
   startPointId: 0
 --- !u!114 &114213404290654376
 MonoBehaviour:
@@ -716,16 +718,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 2
-    speed: 2
+  - position: -16
+    size: 2.5
+    speed: 1
     color: {r: 0, g: 1, b: 1, a: 1}
+    layer: 0
+  - position: -3.6
+    size: 0.4
+    speed: 0.25
+    color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
   - position: -3
     size: 0.15
-    speed: 0.15
+    speed: 0.1
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
+--- !u!114 &114524134297606718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518564982162664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114778191003697896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,6 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1539020561790940, guid: 0b4d475d1cb4f764d90b66ae9b9b4e9b, type: 2}
+  myScene: {fileID: 114524134297606718}
   startPointId: 0
 --- !u!212 &212076026760460778
 SpriteRenderer:

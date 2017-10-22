@@ -50,6 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4433446378322206}
+  - component: {fileID: 114578503163522838}
   m_Layer: 0
   m_Name: OmegaScene
   m_TagString: Untagged
@@ -566,10 +567,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 11.090869, y: -12.44505}
-      - {x: -3.5325603, y: -16.75713}
+    - - {x: 16.421532, y: -12.848209}
+      - {x: 11.697903, y: -16.26438}
       - {x: 20.723639, y: -16.046322}
-      - {x: 22.709766, y: -11.259515}
+      - {x: 22.620176, y: -12.334606}
 --- !u!61 &61141307159707388
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -716,9 +717,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 2
-    speed: 2
+  - position: -16
+    size: 2.5
+    speed: 2.5
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
   - position: -5
@@ -726,10 +727,15 @@ MonoBehaviour:
     speed: 0.4
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
-  - position: -3
-    size: 0.2
-    speed: 0.2
-    color: {r: 0, g: 1, b: 0.048275948, a: 1}
+  - position: -3.59
+    size: 0.3
+    speed: 0.3
+    color: {r: 1, g: 0, b: 0, a: 1}
+    layer: 0
+  - position: -3.41
+    size: 0.25
+    speed: 0.25
+    color: {r: 1, g: 0, b: 0, a: 1}
     layer: 0
 --- !u!114 &114528332835178712
 MonoBehaviour:
@@ -743,7 +749,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1556421778737740, guid: ab83662a47a60634083b3d470dae3b3f, type: 2}
+  myScene: {fileID: 114578503163522838}
   startPointId: 0
+--- !u!114 &114578503163522838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093026117860684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114834324094404906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -756,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1207254541314344, guid: 798569aa31572934797d6e2a668b3a48, type: 2}
+  myScene: {fileID: 114578503163522838}
   startPointId: 1
 --- !u!212 &212841843449688588
 SpriteRenderer:

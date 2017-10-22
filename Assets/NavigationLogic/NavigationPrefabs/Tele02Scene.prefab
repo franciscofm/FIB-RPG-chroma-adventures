@@ -66,8 +66,24 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4329497921054166}
+  - component: {fileID: 114469844667291298}
   m_Layer: 0
   m_Name: Tele02Scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1276984354990262
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4802650435976832}
+  m_Layer: 0
+  m_Name: Point02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4556560961238122}
   m_Layer: 0
-  m_Name: Point00
+  m_Name: PointInit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,6 +376,7 @@ Transform:
   m_Children:
   - {fileID: 4556560961238122}
   - {fileID: 4063164062436986}
+  - {fileID: 4802650435976832}
   m_Father: {fileID: 4329497921054166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -480,8 +497,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755730571909462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19, y: -11.74, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.47, y: -3.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4144267614894996}
@@ -529,6 +546,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4501739723402116}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4802650435976832
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276984354990262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: -11.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4144267614894996}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4803501058728258
 Transform:
@@ -748,9 +778,7 @@ EdgeCollider2D:
   - {x: -21.363949, y: -4.0083466}
   - {x: -15.70881, y: -2.8280835}
   - {x: -15.014236, y: -2.8850038}
-  - {x: -11.068682, y: -1.6066933}
-  - {x: -10.120932, y: -1.6462337}
-  - {x: -4.9402823, y: -1.7138435}
+  - {x: -13.904891, y: -2.681468}
   - {x: -6.4981804, y: -2.8301697}
   - {x: -4.8306584, y: -2.8264108}
   - {x: -4.4357996, y: -2.4616418}
@@ -785,7 +813,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1786711928949024, guid: a476f307919277342a39df24de36fc6a, type: 2}
+  myScene: {fileID: 114469844667291298}
   startPointId: 1
+--- !u!114 &114469844667291298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207254541314344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114492472429900358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -798,6 +839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1093026117860684, guid: 83bb687c264708b47ae9dbdc69d28529, type: 2}
+  myScene: {fileID: 114469844667291298}
   startPointId: 0
 --- !u!114 &114918152507813296
 MonoBehaviour:
@@ -812,21 +854,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 1.5
-    speed: 1.5
+  - position: -16
+    size: 2.5
+    speed: 2.5
     color: {r: 1, g: 1, b: 1, a: 1}
     layer: 0
-  - position: -2.75
-    size: 0.4
-    speed: 0.4
+  - position: -2.5
+    size: 0.6
+    speed: 0.6
     color: {r: 0, g: 0, b: 0, a: 1}
     layer: 0
-  - position: 0
-    size: 0.1
-    speed: 0.1
+  - position: -0.75
+    size: 0.25
+    speed: 0.25
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
-    layer: -2
+    layer: 0
 --- !u!212 &212173302333161144
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -900,7 +942,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -7
   m_Sprite: {fileID: 21300000, guid: 34c1cbd622e280b459b7c7f58bf4b97e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

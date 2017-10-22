@@ -148,6 +148,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4764275296263398}
+  - component: {fileID: 114347849772100324}
   m_Layer: 0
   m_Name: FibBar01Scene
   m_TagString: Untagged
@@ -404,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1833551002709432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4828329458137662}
@@ -861,6 +862,18 @@ EdgeCollider2D:
   - {x: 17.922686, y: -12.531001}
   - {x: 17.94165, y: -11.030129}
   - {x: 21.18819, y: -8.650042}
+--- !u!114 &114347849772100324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299139812006588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114379018574965880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,19 +887,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 2
-    speed: 2
+  - position: -16
+    size: 2.5
+    speed: 2.5
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
   - position: -4.1
-    size: 0.45
-    speed: 0.45
+    size: 1
+    speed: 1
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
   - position: -1
-    size: 0.3
-    speed: 0.3
+    size: 0.7
+    speed: 0.7
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: -2
 --- !u!114 &114545014059508452
@@ -901,6 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1355878435411016, guid: fc69f96be3d055e4a9a3174e62b56bf7, type: 2}
+  myScene: {fileID: 114347849772100324}
   startPointId: 1
 --- !u!114 &114674082721988504
 MonoBehaviour:
@@ -914,6 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1539020561790940, guid: 0b4d475d1cb4f764d90b66ae9b9b4e9b, type: 2}
+  myScene: {fileID: 114347849772100324}
   startPointId: 1
 --- !u!212 &212398075091409354
 SpriteRenderer:

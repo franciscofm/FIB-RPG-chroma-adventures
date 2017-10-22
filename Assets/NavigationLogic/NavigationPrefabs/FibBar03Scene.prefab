@@ -162,6 +162,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640354982694656}
+  - component: {fileID: 114229436275388216}
   m_Layer: 0
   m_Name: FibBar03Scene
   m_TagString: Untagged
@@ -474,7 +475,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196819015626346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.42, y: -2.29, z: 0}
+  m_LocalPosition: {x: -0.46, y: -1.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865884019812854}
@@ -556,7 +557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1593613796881976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.23, y: -3.37, z: 0}
+  m_LocalPosition: {x: 7.73, y: -2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865884019812854}
@@ -658,10 +659,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.091886684, y: -4.4262834}
-      - {x: -15.900543, y: -4.8052816}
+    - - {x: -0.039611503, y: -4.870618}
+      - {x: -9.274231, y: -6.857213}
       - {x: 0.12034798, y: -9.5820055}
-      - {x: 16.805382, y: -4.687258}
+      - {x: 9.607464, y: -6.921095}
 --- !u!60 &60884851436216880
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -686,10 +687,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -13.170546, y: -1.0318334}
-      - {x: -13.643998, y: -1.9457469}
-      - {x: -6.095719, y: -1.9717872}
-      - {x: -5.769579, y: -1.1235476}
+    - - {x: -8.128648, y: -1.0749269}
+      - {x: -12.415843, y: -1.7302814}
+      - {x: -9.672449, y: -2.036427}
+      - {x: -6.0496845, y: -1.942317}
 --- !u!61 &61510785928708166
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -702,7 +703,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: -1.25}
+  m_Offset: {x: -0.5, y: -1.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -713,7 +714,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 1}
+  m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &61679275643464472
 BoxCollider2D:
@@ -886,7 +887,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1518564982162664, guid: 9a057eae6267d3643bb5ae9b78aa8beb, type: 2}
+  myScene: {fileID: 114229436275388216}
   startPointId: 1
+--- !u!114 &114229436275388216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355878435411016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114285628791296374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,6 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1786711928949024, guid: a476f307919277342a39df24de36fc6a, type: 2}
+  myScene: {fileID: 114229436275388216}
   startPointId: 0
 --- !u!114 &114319071498862770
 MonoBehaviour:
@@ -912,6 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1299139812006588, guid: b86bc84f6e40f5c42bda248a63c3c4e9, type: 2}
+  myScene: {fileID: 114229436275388216}
   startPointId: 1
 --- !u!114 &114519593243182490
 MonoBehaviour:
@@ -926,25 +942,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -6
+  - position: -3.5
     size: 3
-    speed: 3
+    speed: 0.1
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
-  - position: -3.75
-    size: 1
-    speed: 1
+  - position: -2
+    size: 0.6
+    speed: 0.05
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
-    layer: 0
-  - position: -2.5
-    size: 0.4
-    speed: 0.4
-    color: {r: 1, g: 0, b: 0, a: 1}
     layer: 0
   - position: -1
     size: 0.15
-    speed: 0.15
-    color: {r: 0, g: 1, b: 0.048275948, a: 1}
+    speed: 0.05
+    color: {r: 1, g: 0, b: 0, a: 1}
     layer: 0
 --- !u!212 &212277056254560406
 SpriteRenderer:
