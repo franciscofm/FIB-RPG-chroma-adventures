@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
 
     public GameObject navigationPlayerPrefab;
     public GameObject firstScenePrefab;
+    public GameObject audioControllerPrefab;
     public float minRandTime = 5f;
     public float maxRandTime = 8f;
 
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour {
         get { return navPlayer; }
     }
     SceneScript navScene;
+    AudioManager audioMan;
 
     float timeCounter = 0;
 
@@ -36,7 +38,10 @@ public class GameController : MonoBehaviour {
         navScene.gc = this;
         navPlayer = (Instantiate(navigationPlayerPrefab, Vector3.zero, Quaternion.identity)).GetComponent<CharacterMovement>();
         navPlayer.transform.position = navScene.transform.GetChild(0).GetChild(0).position;
+        audioMan = (Instantiate(audioControllerPrefab, Vector3.zero, Quaternion.identity)).GetComponent<AudioManager>();
+        audioMan.PlayNavMusic();
         timeCounter = Random.Range(minRandTime, maxRandTime);
+
     }
 	
 	// Update is called once per frame
@@ -68,6 +73,8 @@ public class GameController : MonoBehaviour {
         //enable allys
         //enable enemies
         //init combat controller
+        audioMan.PlayCombatMusic();
+
 
     }
 
@@ -79,6 +86,7 @@ public class GameController : MonoBehaviour {
         //disable enemies
         navScene.gameObject.SetActive(true);
         navPlayer.gameObject.SetActive(true);
+        audioMan.PlayNavMusic();
     }
 
     public void SetScene(GameObject scene)

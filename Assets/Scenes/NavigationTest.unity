@@ -241,5 +241,7 @@ MonoBehaviour:
     type: 2}
   firstScenePrefab: {fileID: 1207254541314344, guid: 798569aa31572934797d6e2a668b3a48,
     type: 2}
+  audioControllerPrefab: {fileID: 1536322466836106, guid: 62dc12f4b391e934da26727ec431af1e,
+    type: 2}
   minRandTime: 5
   maxRandTime: 8
