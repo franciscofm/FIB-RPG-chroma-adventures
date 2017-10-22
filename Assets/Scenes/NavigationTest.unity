@@ -157,7 +157,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -237,11 +237,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c0b4d09b71bac4fb92984783834f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dummy1: {fileID: 1419722126720348, guid: 895328f833800f74da5190ab61f06c81, type: 2}
+  dummy2: {fileID: 1419722126720348, guid: f6ebb28c80c91e6448451e36b1976993, type: 2}
+  dummy3: {fileID: 1419722126720348, guid: 4fd3caa3553a1354a96b10694aa0eb7c, type: 2}
+  dummy4: {fileID: 1419722126720348, guid: 0dc040dfa63a71946a1d4af4535b6ce0, type: 2}
+  dummy5: {fileID: 1419722126720348, guid: 7d757fe82785db3498b6f0e568f4b6c2, type: 2}
+  dummy6: {fileID: 1419722126720348, guid: 2da1203e01026484192616f7070a24db, type: 2}
   navigationPlayerPrefab: {fileID: 1777272823139456, guid: 8ab6a1478c280f744ac79fa51ae51f7e,
     type: 2}
   firstScenePrefab: {fileID: 1207254541314344, guid: 798569aa31572934797d6e2a668b3a48,
     type: 2}
   audioControllerPrefab: {fileID: 1536322466836106, guid: 62dc12f4b391e934da26727ec431af1e,
     type: 2}
+  hudPrefab: {fileID: 1230040187521696, guid: a398a726ab02e5e4f8cad7a25b3d02b3, type: 2}
   minRandTime: 5
   maxRandTime: 8
