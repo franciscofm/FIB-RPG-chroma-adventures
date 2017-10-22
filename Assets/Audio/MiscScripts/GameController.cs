@@ -56,6 +56,8 @@ public class GameController : MonoBehaviour {
 
         timeCounter = Random.Range(minRandTime, maxRandTime);
     }
+
+    bool initBattle = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -71,29 +73,37 @@ public class GameController : MonoBehaviour {
         }
         else if(state == GameControllerState.Battle)
         {
-
+            if(!initBattle)
+            {
+                List<GameObject> allies = new List<GameObject>();
+                allies.Add(dummy1);
+                allies.Add(dummy2);
+                allies.Add(dummy3);
+                List<GameObject> enemies = new List<GameObject>();
+                enemies.Add(dummy4);
+                enemies.Add(dummy5);
+                enemies.Add(dummy6);
+                chc.init(allies, enemies);
+                initBattle = true;
+            }
+            if(Input.GetButtonDown("Fire1"))
+            {
+                StartNavigationState();
+            }
         }
 	}
 
     void StartCombatState()
     {
-        Debug.Log("FUISH FUISH!");
+        //Debug.Log("FUISH FUISH!");
+        state = GameControllerState.Battle;
         
         navScene.gameObject.SetActive(false);
         navPlayer.gameObject.SetActive(false);
         
 		chc.transform.parent.gameObject.SetActive(true);
-        //enable allys
-		//enable enemies
-		List<GameObject> allies = new List<GameObject>();
-		allies.Add (dummy1);
-		allies.Add (dummy2);
-		allies.Add (dummy3);
-		List<GameObject> enemies = new List<GameObject>();
-		enemies.Add (dummy4);
-		enemies.Add (dummy5);
-		enemies.Add (dummy6);
-		chc.init (allies,enemies);
+        initBattle = false;
+
         //init combat controller
         audioMan.PlayCombatMusic();
 
@@ -102,8 +112,9 @@ public class GameController : MonoBehaviour {
 
     void StartNavigationState()
     {
-
-		chc.transform.parent.gameObject.SetActive(false);
+        state = GameControllerState.Navigation;
+        chc.winGame();
+        chc.transform.parent.gameObject.SetActive(false);
         //disable allys
         //disable enemies
         navScene.gameObject.SetActive(true);

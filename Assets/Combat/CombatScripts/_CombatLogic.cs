@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class _CombatLogic {
 
-	//static GameObject active;
-	static List<GameObject> allies = new List<GameObject>();
-	static List<GameObject> enemies = new List<GameObject>();
+    //static GameObject active;
+    static List<GameObject> allies;
+    static List<GameObject> enemies;
 	static List<GameObject> units = new List<GameObject> ();
 
 	static GameObject[] turns = new GameObject[100];
@@ -20,21 +20,13 @@ public class _CombatLogic {
 	public static void setAll(List<GameObject> all, List<GameObject> enem) {
 		allies = all;
 		enemies = enem;
-		for (int i = 0; i < allies.Count; ++i)
+        for (int i = 0; i < turns.Length; ++i)
+            turns[i] = null;
+        units.Clear();
+        for (int i = 0; i < allies.Count; ++i)
 			units.Add (allies [i]);
 		for (int i = 0; i < enemies.Count; ++i)
 			units.Add (enemies [i]);
-	}
-
-	/*
-	 * Limpia las listas de allies, enemies y units
-	 * */
-	public static void clear(){
-		allies.Clear ();
-		enemies.Clear ();
-		units.Clear ();
-		for (int i = 0; i < turns.Length; ++i)
-			turns [i] = null;
 	}
 
 	/*
