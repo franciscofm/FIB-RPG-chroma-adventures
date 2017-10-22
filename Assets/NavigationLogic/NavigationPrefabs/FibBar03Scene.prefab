@@ -162,6 +162,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640354982694656}
+  - component: {fileID: 114229436275388216}
   m_Layer: 0
   m_Name: FibBar03Scene
   m_TagString: Untagged
@@ -886,7 +887,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1518564982162664, guid: 9a057eae6267d3643bb5ae9b78aa8beb, type: 2}
+  myScene: {fileID: 114229436275388216}
   startPointId: 1
+--- !u!114 &114229436275388216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355878435411016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114285628791296374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,6 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1786711928949024, guid: a476f307919277342a39df24de36fc6a, type: 2}
+  myScene: {fileID: 114229436275388216}
   startPointId: 0
 --- !u!114 &114319071498862770
 MonoBehaviour:
@@ -912,6 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1299139812006588, guid: b86bc84f6e40f5c42bda248a63c3c4e9, type: 2}
+  myScene: {fileID: 114229436275388216}
   startPointId: 1
 --- !u!114 &114519593243182490
 MonoBehaviour:

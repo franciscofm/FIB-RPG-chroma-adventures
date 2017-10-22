@@ -50,6 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4433446378322206}
+  - component: {fileID: 114578503163522838}
   m_Layer: 0
   m_Name: OmegaScene
   m_TagString: Untagged
@@ -748,7 +749,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1556421778737740, guid: ab83662a47a60634083b3d470dae3b3f, type: 2}
+  myScene: {fileID: 114578503163522838}
   startPointId: 0
+--- !u!114 &114578503163522838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093026117860684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d570697508f9e9e4496d50dcfa6dd93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
 --- !u!114 &114834324094404906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -761,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPrefab: {fileID: 1207254541314344, guid: 798569aa31572934797d6e2a668b3a48, type: 2}
+  myScene: {fileID: 114578503163522838}
   startPointId: 1
 --- !u!212 &212841843449688588
 SpriteRenderer:

@@ -8,8 +8,13 @@ public class CharacterMovement : MonoBehaviour {
     SpriteRenderer sprite;
     public float speed = 5;
     public float speedMod = 1;
-    Vector2 walkDirection = Vector2.zero;
     Animator anim;
+    bool isMoving = false;
+
+    public bool PlayerMoving
+    {
+        get { return isMoving; }
+    }
 
     private void Awake()
     {
@@ -34,12 +39,13 @@ public class CharacterMovement : MonoBehaviour {
         left = (xAxis <= -0.15f);
         right = (xAxis >= 0.15f);
 
+        isMoving = up || down || left || right;
+
         up = up && Mathf.Abs(yAxis) > Mathf.Abs(xAxis);
         down = down && Mathf.Abs(yAxis) > Mathf.Abs(xAxis);
         left = left && Mathf.Abs(xAxis) > Mathf.Abs(yAxis);
         right = right && Mathf.Abs(xAxis) > Mathf.Abs(yAxis);
 
-        walkDirection = (new Vector2(xAxis, yAxis)).normalized;
         float xSpeedMod = (speedMod <= .2f) ? speedMod * 5f : (speedMod < 1) ? 1 : speedMod;
         myRig.velocity = new Vector2(xAxis*xSpeedMod, yAxis*speedMod)*speed;
 
@@ -53,4 +59,5 @@ public class CharacterMovement : MonoBehaviour {
     {
         sprite.sortingOrder = layer;
     }
+
 }
