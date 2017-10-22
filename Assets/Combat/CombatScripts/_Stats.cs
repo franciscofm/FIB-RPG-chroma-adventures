@@ -27,9 +27,9 @@ public class _Stats : MonoBehaviour {
 	public int speed;
 
 	[Tooltip("Debug pursposes: habilidad cargando")]
-	public _Skill nextSkill;
-	public GameObject nextTarget;
-	public string nextSkillTrigger;
+	public _Skill nextSkill = null;
+	public GameObject nextTarget = null;
+	public string nextSkillTrigger = "";
 	[Tooltip("Habilidades del personaje")]
 	public _Skill[] setSkills;
 
