@@ -377,7 +377,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098664253641596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: -15, z: 0}
+  m_LocalPosition: {x: -4, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4747626613771322}
@@ -695,9 +695,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -5.7436314, y: 6.8117375}
       - {x: -6.0080605, y: 6.169514}
-      - {x: 2.2726402, y: 4.2137785}
-      - {x: 2.3180828, y: -4.963501}
-      - {x: 4.1520157, y: -5.281332}
+      - {x: 3.6929703, y: 3.9770555}
       - {x: 4.6969013, y: 5.8029256}
 --- !u!61 &61004525182521890
 BoxCollider2D:
@@ -889,18 +887,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 2
-    speed: 2
+  - position: -16
+    size: 2.5
+    speed: 1.5
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
-  - position: -3.6
-    size: 0.35
-    speed: 0.35
+  - position: -3.3
+    size: 0.5
+    speed: 0.4
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
   - position: -2
-    size: 0.2
+    size: 0.25
     speed: 0.2
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: -2

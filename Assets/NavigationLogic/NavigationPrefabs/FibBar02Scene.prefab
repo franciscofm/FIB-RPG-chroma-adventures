@@ -371,7 +371,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1480470040933094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: -16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997762327134982}
@@ -716,14 +716,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 2
-    speed: 2
+  - position: -16
+    size: 2.5
+    speed: 1
     color: {r: 0, g: 1, b: 1, a: 1}
+    layer: 0
+  - position: -3.6
+    size: 0.4
+    speed: 0.25
+    color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
   - position: -3
     size: 0.15
-    speed: 0.15
+    speed: 0.1
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
 --- !u!114 &114778191003697896

@@ -732,14 +732,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
+  - position: -16
     size: 2
     speed: 2
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
-  - position: -3.75
-    size: 0.5
-    speed: 0.5
+  - position: -7
+    size: 0.8
+    speed: 0.8
+    color: {r: 0, g: 1, b: 0.048275948, a: 1}
+    layer: 0
+  - position: -5
+    size: 0.6
+    speed: 0.6
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
 --- !u!212 &212040438606862348

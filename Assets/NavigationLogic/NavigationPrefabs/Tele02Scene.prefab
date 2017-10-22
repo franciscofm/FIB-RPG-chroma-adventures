@@ -748,9 +748,7 @@ EdgeCollider2D:
   - {x: -21.363949, y: -4.0083466}
   - {x: -15.70881, y: -2.8280835}
   - {x: -15.014236, y: -2.8850038}
-  - {x: -11.068682, y: -1.6066933}
-  - {x: -10.120932, y: -1.6462337}
-  - {x: -4.9402823, y: -1.7138435}
+  - {x: -13.904891, y: -2.681468}
   - {x: -6.4981804, y: -2.8301697}
   - {x: -4.8306584, y: -2.8264108}
   - {x: -4.4357996, y: -2.4616418}
@@ -812,21 +810,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 1.5
-    speed: 1.5
+  - position: -16
+    size: 2.5
+    speed: 2.5
     color: {r: 1, g: 1, b: 1, a: 1}
     layer: 0
-  - position: -2.75
-    size: 0.4
-    speed: 0.4
+  - position: -2.5
+    size: 0.6
+    speed: 0.6
     color: {r: 0, g: 0, b: 0, a: 1}
     layer: 0
-  - position: 0
-    size: 0.1
-    speed: 0.1
+  - position: -0.75
+    size: 0.25
+    speed: 0.25
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
-    layer: -2
+    layer: 0
 --- !u!212 &212173302333161144
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -900,7 +898,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -7
   m_Sprite: {fileID: 21300000, guid: 34c1cbd622e280b459b7c7f58bf4b97e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

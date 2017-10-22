@@ -566,10 +566,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 11.090869, y: -12.44505}
-      - {x: -3.5325603, y: -16.75713}
+    - - {x: 16.421532, y: -12.848209}
+      - {x: 11.697903, y: -16.26438}
       - {x: 20.723639, y: -16.046322}
-      - {x: 22.709766, y: -11.259515}
+      - {x: 22.620176, y: -12.334606}
 --- !u!61 &61141307159707388
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -716,9 +716,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xOffset: 0.25
   areas:
-  - position: -17
-    size: 2
-    speed: 2
+  - position: -16
+    size: 2.5
+    speed: 2.5
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
   - position: -5
@@ -726,10 +726,15 @@ MonoBehaviour:
     speed: 0.4
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
-  - position: -3
-    size: 0.2
-    speed: 0.2
-    color: {r: 0, g: 1, b: 0.048275948, a: 1}
+  - position: -3.59
+    size: 0.3
+    speed: 0.3
+    color: {r: 1, g: 0, b: 0, a: 1}
+    layer: 0
+  - position: -3.41
+    size: 0.25
+    speed: 0.25
+    color: {r: 1, g: 0, b: 0, a: 1}
     layer: 0
 --- !u!114 &114528332835178712
 MonoBehaviour:
