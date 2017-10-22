@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour {
                 chc.init(allies, enemies);
                 initBattle = true;
             }
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetKeyDown(KeyCode.Z))
             {
                 StartNavigationState();
             }

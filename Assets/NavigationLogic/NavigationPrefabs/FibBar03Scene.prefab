@@ -944,12 +944,12 @@ MonoBehaviour:
   areas:
   - position: -3.5
     size: 3
-    speed: 0.1
+    speed: 0.2
     color: {r: 0, g: 1, b: 1, a: 1}
     layer: 0
   - position: -2
     size: 0.6
-    speed: 0.05
+    speed: 0.1
     color: {r: 0, g: 1, b: 0.048275948, a: 1}
     layer: 0
   - position: -1

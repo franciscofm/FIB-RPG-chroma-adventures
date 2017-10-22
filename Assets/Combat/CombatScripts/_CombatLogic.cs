@@ -96,8 +96,9 @@ public class _CombatLogic {
 				int pos = Mathf.CeilToInt(s.turns * (1f + s.speed * 0.1f));
 				placeTurn (t, s, pos);
 			}
-		}
-	}
+        }
+        HUD.updateHUD(); //Test purposes
+    }
 
 	//Pone el objeto t en la posicion pos (s es el script _Stats de t)
 	private static void placeTurn(GameObject t, _Stats s, int pos){
@@ -167,7 +168,7 @@ public class _CombatLogic {
 		_Stats stats = turns[0].GetComponent<_Stats>();
 		stats.armor = 0f;
 		//Animacion que desencadena la mierda que toque
-		turns [0].GetComponent<Animator> ().SetTrigger ("skill" + script.pos); 	//en primer caso llama attack y endTurn
+		turns [0].GetComponent<Animator> ().SetTrigger ("Skill" + script.pos); 	//en primer caso llama attack y endTurn
 																				//en ser cargada no llamara nada
 		//Lanzamos accion inmediata
 		if (script.speed == 1f) {
@@ -178,7 +179,7 @@ public class _CombatLogic {
 			int pos = Mathf.CeilToInt(script.speed * (1f + stats.speed * 0.1f)) / 2;
 			stats.nextSkill = script;
 			stats.nextTarget = target;
-			stats.nextSkillTrigger = "skill" + script.pos;
+			stats.nextSkillTrigger = "Skill" + script.pos;
 			placeTurn (turns [0], stats, pos);
 			endTurn ();
 		}
@@ -300,7 +301,8 @@ public class _CombatLogic {
 				//TODO: IA del enemigo (random)
 				startAction(allies[UnityEngine.Random.Range(0,allies.Count)],s.setSkills[UnityEngine.Random.Range(0,s.setSkills.Length)]);
 			} else {
-				//TODO: habilitar control del jugador
+                //TODO: habilitar control del jugador
+                HUD.updateHUD();
 				HUD.setUserActive(true);
 			}
 		}
