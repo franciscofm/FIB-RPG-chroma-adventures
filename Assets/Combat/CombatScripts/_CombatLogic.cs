@@ -52,6 +52,15 @@ public class _CombatLogic {
 	}
 
 	public static void diesUnit(Team t, GameObject g) {
+        for(int i = 0; i < turns.Length; ++i)
+        {
+            if(g == turns[i])
+            {
+                turns[i] = null;
+                HUD.addTimelineImage(null, i);
+                break;
+            }
+        }
 		units.Remove (g);
 		if (t == Team.Ally)
 			allies.Remove (g);
@@ -93,15 +102,16 @@ public class _CombatLogic {
 				HUD.addTimelineImage (s.icon,0);
 			} else {
 				//ponerlo a distancia turno
-				int pos = Mathf.CeilToInt(s.turns * (1f + s.speed * 0.1f));
+				int pos = Mathf.CeilToInt((s.turns-1) * (1f + s.speed * 0.1f));
 				placeTurn (t, s, pos);
 			}
-        }
+        }        
         HUD.updateHUD(); //Test purposes
     }
 
 	//Pone el objeto t en la posicion pos (s es el script _Stats de t)
 	private static void placeTurn(GameObject t, _Stats s, int pos){
+        pos = Mathf.Clamp(pos,0, turns.Length - 1);
 		if (turns [pos] == null) {
 			turns [pos] = t;
 			HUD.addTimelineImage (s.icon,pos);
@@ -110,26 +120,27 @@ public class _CombatLogic {
 			GameObject other = turns [pos];
 			if (s.initiative > other.GetComponent<_Stats> ().initiative) {
 				//move turns[pos] to turns[pos+1]
-				for (int j = (turns.Length - 2); (pos + 1) < j; --j) {
-					turns [j] = turns [j - 1];
-					if (turns [j - 1] != null) {
-						HUD.addTimelineImage (turns [j - 1].GetComponent<_Stats> ().icon, j);
-						HUD.removeTimelineImage (j - 1);
-					}
-				}
-				turns [pos] = t;
+				for (int j = (turns.Length - 2); pos <= j; --j) {
+					turns [j+1] = turns [j];
+					if (turns [j + 1] != null) {
+						HUD.addTimelineImage (turns [j+1].GetComponent<_Stats> ().icon, j+1);
+					} else HUD.addTimelineImage(null, j+1);
+
+                }
+                turns [pos] = t;
 				HUD.addTimelineImage (s.icon,pos);
 			} else {
 				//move t to turns[pos+1]
-				for (int j = (turns.Length - 2); (pos + 2) < j; --j) {
-					turns [j] = turns [j - 1];
-					if (turns [j - 1] != null) {
-						HUD.addTimelineImage (turns [j - 1].GetComponent<_Stats> ().icon, j);
-						HUD.removeTimelineImage (j - 1);
-					}
-				}
-				turns [pos + 1] = t;
-				HUD.addTimelineImage (s.icon,pos+1);
+				for (int j = (turns.Length - 2); (pos + 1) < j; --j) {
+					turns [j+1] = turns [j];
+					if (turns [j + 1] != null) {
+                        HUD.addTimelineImage(turns[j + 1].GetComponent<_Stats>().icon, j + 1);
+                    } else HUD.addTimelineImage(null, j + 1);
+                }
+                turns [pos + 1] = t;
+
+
+                HUD.addTimelineImage (s.icon,pos+1);
 			}
 		}
 	}
@@ -139,7 +150,6 @@ public class _CombatLogic {
 		for (int i = 0; i < turns.Length; ++i)
 			if (turns [i] != null)
 				output += i+ ": " +turns [i].name + Environment.NewLine;
-		Debug.Log (output);
 	}
 
 	/*
@@ -147,7 +157,6 @@ public class _CombatLogic {
 	 * */
 	public static int previewNextTurn(_Skill script) {
 		if (script.speed == 1f) {
-			Debug.Log ("Instant action");
 			return 0;
 		} else {
 			_Stats stats = turns[0].GetComponent<_Stats>();
@@ -172,19 +181,21 @@ public class _CombatLogic {
 																				//en ser cargada no llamara nada
 		//Lanzamos accion inmediata
 		if (script.speed == 1f) {
-            Debug.Log("Habilidad rapida" + turns[0].name);
 			stats.nextSkill = null;
+            stats.preparingSkill = false;
 			stats.nextTarget = target;
-            int pos = Mathf.CeilToInt(script.speed * (1f + stats.speed * 0.1f));
+            int pos = Mathf.CeilToInt(stats.turns * (1f + stats.speed * 0.1f));
             placeTurn(turns[0], stats, pos);
             turns[0] = null;
-        //Lanzamos accion con carga
-        } else {
-			int pos = Mathf.CeilToInt(script.speed * (1f + stats.speed * 0.1f)) / 2;
+            HUD.addTimelineImage(null, 0);
+            //Lanzamos accion con carga
+        }
+        else {
+			int pos = Mathf.CeilToInt(stats.turns * (1f + stats.speed * 0.1f)) / 2;
 			stats.nextSkill = script;
-			stats.nextTarget = target;
+            stats.preparingSkill = true;
+            stats.nextTarget = target;
 			stats.nextSkillTrigger = "Skill" + script.pos;
-            Debug.Log("Habilidad lenta: "+stats.nextSkillTrigger+", "+script.speed);
             placeTurn (turns [0], stats, pos);
 			endTurn ();
 		}
@@ -195,6 +206,7 @@ public class _CombatLogic {
 	 * Si se puede realizar la accion se debe comprobar antes de esta funcion
 	 * */
 	public static void attack(GameObject attacker, GameObject target, _Skill skill) {
+        if (attacker == null || target == null || skill == null) return;
 		_Stats statsAttacker = attacker.GetComponent<_Stats> ();
 		if (target == null)
 			target = selectNewTarget (statsAttacker.team);
@@ -208,13 +220,13 @@ public class _CombatLogic {
 					_Stats tmp = units [i].GetComponent<_Stats> ();
 					tmp.getAttack (damage, statsAttacker.type);
 					tmp.armor = skill.armor;
-					recalculateTurn (units [i], tmp, -1);
+					recalculateTurn (units [i], tmp);
 				}
 			} else {
 				statsAttacker.getAttack (damage, statsAttacker.type);
-				recalculateTurn (attacker, statsAttacker, -1);
+				recalculateTurn (attacker, statsAttacker);
 				statsTarget.getAttack (damage, statsAttacker.type);
-				recalculateTurn (target, statsTarget, -1);
+				recalculateTurn (target, statsTarget);
 			}
 		} else {
 			if (skill.area) {
@@ -224,12 +236,12 @@ public class _CombatLogic {
 					_Stats tmp = targets [i].GetComponent<_Stats> ();
 					tmp.getAttack (damage, statsAttacker.type);
 					tmp.armor = skill.armor;
-					recalculateTurn (targets [i], tmp, -1);
+					recalculateTurn (targets [i], tmp);
 				}
 			} else {
 				statsTarget.getAttack (damage, statsAttacker.type);
 				statsTarget.armor = skill.armor;
-				recalculateTurn (target, statsTarget, -1);
+				recalculateTurn (target, statsTarget);
 			}
 		}
 	}
@@ -242,15 +254,15 @@ public class _CombatLogic {
 	 * Funcion llamada al haber un cambio de speed en los _Stats de una unidad
 	 * si pos es -1, su busca el t en el array primero
 	 * */
-	static void recalculateTurn(GameObject t, _Stats s, int pos) {
-		if (pos == -1) {
-			bool found = false;
-			for (pos = 0; (pos < turns.Length) && (!found); ++pos) {
-				if (turns [pos] == t)
-					found = true;
-			}
+	static void recalculateTurn(GameObject t, _Stats s) {
+        int pos = -1;
+		bool found = false;
+		for (pos = 0; (pos < turns.Length) && (!found); ++pos) {
+			if (turns [pos] == t)
+				found = true;
 		}
-		int newPos = Mathf.CeilToInt (s.turns * (1f + s.speed * 0.1f));
+        if (pos < 0 || pos >= turns.Length) return;
+		int newPos = Mathf.Clamp(Mathf.CeilToInt (pos * (1f + s.speed * 0.1f)), 0, turns.Length-1);
 		if (pos != newPos) {
 			turns [pos] = null;
 			placeTurn (t, s, newPos);
@@ -261,6 +273,7 @@ public class _CombatLogic {
 	 * Funcion llamada cuando acaba el turno actual
 	 * */
 	public static void endTurn(){
+
 		if (allies.Count == 0) {
 			HUD.gameOver ();
 		} else if (enemies.Count == 0) {
@@ -270,33 +283,36 @@ public class _CombatLogic {
 			}
 		} else {
 			//Desplazamos el array de turnos
-			HUD.clearTimelineImages();
-			bool found = false;
 			int count = 0;
 			int dist = 0;
-			for (int i = 1; (i < turns.Length) && (count < units.Count - 1); ++i) {
-				if (turns [i] != null) {
-					++count;
-					if (!found) {
-						found = true;
+
+            for (int i = 1; (i < turns.Length) && (count < units.Count); ++i) {
+
+                if (turns [i] != null) {
+
+                    ++count;
+					if (dist == 0) {
 						dist = i;
 					}
 					turns [i - dist] = turns [i];
-					turns [i] = null;
+                    turns[i] = null;
 					HUD.addTimelineImage (turns [i - dist].GetComponent<_Stats>().icon,(i-dist));
-				}
-			}
-            //Desplazamos al que estaba en su turno
+                    HUD.addTimelineImage(null, i);
+
+                }
+
+            }
+
             GameObject t = turns[0];
             _Stats s = t.GetComponent<_Stats> ();
 			s.armor = 0f;
-			if (s.nextSkill != null) {
-                Debug.Log(s.gameObject.name + " " + s.nextSkillTrigger);
+			if (s.preparingSkill) {
 				//TODO: lanzar accion 
 				turns [0].GetComponent<Animator> ().SetTrigger (s.nextSkillTrigger); //esta llamara attack y endTurn
 
 				s.nextSkill = null;
-				s.nextTarget = null;
+                s.preparingSkill = false;
+                s.nextTarget = null;
 				s.nextSkillTrigger = "";
 
 
@@ -304,7 +320,7 @@ public class _CombatLogic {
                 placeTurn(turns[0], s, pos);
                 turns[0] = null;
             } else if (s.team == Team.Enemy) {
-				//TODO: IA del enemigo (random)
+                //TODO: IA del enemigo (random)
 				startAction(allies[UnityEngine.Random.Range(0,allies.Count)],s.setSkills[UnityEngine.Random.Range(0,s.setSkills.Length)]);
 			} else {
                 //TODO: habilitar control del jugador

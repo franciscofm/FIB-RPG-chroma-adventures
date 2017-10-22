@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c06ab6c2d8dcd443b2707b25f180f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
   type: 0
   icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   attack: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
   cost: 10
   armor: 0
   turns: 8
-  initiative: 8
+  initiative: 5
   speed: 0
   nextSkill:
     pos: 0
@@ -90,6 +90,7 @@ MonoBehaviour:
     image: {fileID: 0}
     name: 
     cost: 0
+  preparingSkill: 0
   nextTarget: {fileID: 0}
   nextSkillTrigger: 
   setSkills:

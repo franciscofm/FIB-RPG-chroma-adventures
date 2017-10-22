@@ -77,7 +77,7 @@ MonoBehaviour:
   health: 20
   cost: 10
   armor: 0
-  turns: 5
+  turns: 3
   initiative: 7
   speed: 0
   nextSkill:
@@ -90,6 +90,7 @@ MonoBehaviour:
     image: {fileID: 0}
     name: 
     cost: 0
+  preparingSkill: 0
   nextTarget: {fileID: 0}
   nextSkillTrigger: 
   setSkills:

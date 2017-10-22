@@ -19,6 +19,7 @@ public class AttackScript : StateMachineBehaviour {
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         //
         animator.gameObject.GetComponent<_Stats>().launchFastAttack(skill);
+        Debug.Log("hola");
         _CombatLogic.endTurn();
 	}
 
