@@ -172,7 +172,7 @@ public class _CombatLogic {
 		//Lanzamos accion inmediata
 		if (script.speed == 1f) {
 			stats.nextSkill = null;
-			stats.nextTarget = null;
+			stats.nextTarget = target;
 		//Lanzamos accion con carga
 		} else {
 			int pos = Mathf.CeilToInt(script.speed * (1f + stats.speed * 0.1f)) / 2;

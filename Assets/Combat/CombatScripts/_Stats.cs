@@ -33,6 +33,15 @@ public class _Stats : MonoBehaviour {
 	[Tooltip("Habilidades del personaje")]
 	public _Skill[] setSkills;
 
+    public void launchFastAttack(int i)
+    {
+        _CombatLogic.attack(gameObject, nextTarget, setSkills[i]);
+    }
+
+    public void launchChargedAttack() {
+        _CombatLogic.attack(gameObject, nextTarget, nextSkill);
+    }
+
 	public void getAttack(int damage, _CombatLogic.Type type) {
 		if (damage < 0) {
 			health -= damage;
