@@ -4,7 +4,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class _Skill {
-
+	[Tooltip("Posicion de la habilidad en el array (si no peta)")]
+	public int pos;
 	[Tooltip("Multiplicador de velocidad >= 1f (1f = instant)")]
 	public float speed;
 	[Tooltip("Multiplicador de poder de ataque")]
