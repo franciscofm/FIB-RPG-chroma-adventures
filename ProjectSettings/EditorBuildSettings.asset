@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Llisto/Scene/Menu.unity
+  - enabled: 0
+    path: 
     guid: 0e463d266b5fe6840b672e6c27bc4c65
-  - enabled: 1
-    path: Assets/Llisto/Scene/Battle.unity
+  - enabled: 0
+    path: 
     guid: 801c8dc3e737e8d45bd54fcc9322ba66
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f2356220f7886364da54a11468bd0f69
+  - enabled: 1
+    path: Assets/Scenes/NavigationTest.unity
+    guid: 468865639975cfd43821181c86828ea1
