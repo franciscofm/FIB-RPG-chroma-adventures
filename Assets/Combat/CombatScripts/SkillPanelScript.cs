@@ -13,9 +13,9 @@ public class SkillPanelScript : MonoBehaviour {
 
     public void updatePanel(_Stats stats) {
         //Cambiar componente en el script de los botones a la skill que toque (stats.setSkills[i])
-        for(int i=0; i<button.Length; ++i)
-        {
+        for(int i=0; i<button.Length; ++i) 
             button[i].GetComponent<ButtonScript>().setSkill(stats.setSkills[i]);
-        }
+		//TODO: pasar habilidad que toca
+		description.GetComponent<DescriptionScript> ().setText (stats.setSkills[0]);
     }
 }
